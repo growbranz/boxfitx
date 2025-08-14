@@ -16,7 +16,6 @@ export const metadata: Metadata = {
   title: "Box Fitx",
   description: "More than muscle, we build life style",
 };
-
 export default function RootLayout({
   children,
 }: Readonly<{
