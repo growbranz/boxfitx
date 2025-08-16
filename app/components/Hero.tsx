@@ -1,67 +1,57 @@
 "use client";
+
 import React, { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 import LeadPopup from "./LeadPopup"; // ✅ import popup
 
 const Hero = () => {
-  const headingRef = useRef(null);
-  const taglineRef = useRef(null);
-  const buttonRef = useRef(null);
+  const headingRef = useRef<HTMLHeadingElement>(null);
+  const taglineRef = useRef<HTMLParagraphElement>(null);
+  const buttonRef = useRef<HTMLButtonElement>(null);
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
 
   // Animate on mount (for first slide only)
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
-
     tl.fromTo(headingRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1 })
-      .fromTo(
-        taglineRef.current,
-        { y: 30, opacity: 0 },
-        { y: 0, opacity: 1 },
-        "-=0.4"
-      )
-      .fromTo(
-        buttonRef.current,
-        { scale: 0.8, opacity: 0 },
-        { scale: 1, opacity: 1, duration: 0.6 },
-        "-=0.3"
-      );
+      .fromTo(taglineRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.4")
+      .fromTo(buttonRef.current, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 }, "-=0.3");
   }, []);
 
-  // Slide data
   const slides = [
     {
       img: "/images/cgym1.jpg",
       title: "More Than Muscle",
       subtitle: "We Build Lifestyle.",
       button: "Join Now",
-      action: "popup", // ✅ open popup
+      action: "popup",
     },
     {
       img: "/images/cgym5.jpg",
       title: "Fitness Club",
       subtitle: "State-of-the-art equipment and training programs.",
       button: "Explore Fitness",
-      action: "programs", // ✅ redirect
+      action: "programs",
     },
     {
       img: "/images/cgym3.jpg",
       title: "Boxing Fitness Club",
       subtitle: "Unleash your power with professional boxing sessions.",
       button: "Start Boxing",
-      action: "programs", // ✅ redirect
+      action: "programs",
     },
     {
       img: "/images/cgym4.jpg",
       title: "Nutrition Club",
       subtitle: "Personalized nutrition plans for your fitness journey.",
       button: "Get Nutrition",
-      action: "programs", // ✅ redirect
+      action: "programs",
     },
   ];
 
@@ -78,17 +68,12 @@ const Hero = () => {
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
             <div style={{ position: "relative", height: "100vh", width: "100%" }}>
-              <img
+              <Image
                 src={slide.img}
                 alt={slide.title}
-                style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  objectFit: "cover",
-                }}
+                fill
+                style={{ objectFit: "cover" }}
+                priority
               />
 
               {/* Gradient Overlay */}
@@ -99,11 +84,10 @@ const Hero = () => {
                   left: 0,
                   height: "100%",
                   width: "100%",
-                  background:
-                    "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 100%)",
+                  background: "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 100%)",
                   zIndex: 1,
                 }}
-              ></div>
+              />
 
               {/* Content */}
               <div
@@ -132,11 +116,7 @@ const Hero = () => {
                 </h1>
                 <p
                   ref={i === 0 ? taglineRef : null}
-                  style={{
-                    fontSize: "1.25rem",
-                    marginTop: "1rem",
-                    color: "#ededed",
-                  }}
+                  style={{ fontSize: "1.25rem", marginTop: "1rem", color: "#ededed" }}
                 >
                   {slide.subtitle}
                 </p>
@@ -154,19 +134,13 @@ const Hero = () => {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow =
-                      "0 0 15px #39FF14, 0 0 30px #39FF14";
+                    e.currentTarget.style.boxShadow = "0 0 15px #39FF14, 0 0 30px #39FF14";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow =
-                      "0 0 8px #39FF14, 0 0 16px #39FF14";
+                    e.currentTarget.style.boxShadow = "0 0 8px #39FF14, 0 0 16px #39FF14";
                   }}
-                  onClick={() =>
-                    slide.action === "popup"
-                      ? setShowPopup(true)
-                      : router.push("/programs")
-                  }
+                  onClick={() => (slide.action === "popup" ? setShowPopup(true) : router.push("/programs"))}
                 >
                   {slide.button}
                 </button>
@@ -177,11 +151,7 @@ const Hero = () => {
       </Swiper>
 
       {/* Lead Popup for first slide */}
-      <LeadPopup
-        isOpen={showPopup}
-        onClose={() => setShowPopup(false)}
-        club="Box FitX"
-      />
+      <LeadPopup isOpen={showPopup} onClose={() => setShowPopup(false)} club="Box FitX" />
     </section>
   );
 };

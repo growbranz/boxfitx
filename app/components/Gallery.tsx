@@ -1,7 +1,13 @@
 "use client";
-import React, { useState } from "react";
 
-const Gallery = ({ preview = false }) => {
+import React, { useState } from "react";
+import Image from "next/image";
+
+interface GalleryProps {
+  preview?: boolean;
+}
+
+const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
   const allImages = [
     { src: "/images/cgym1.jpg", category: "fitness" },
     { src: "/images/cgym9.jpg", category: "fitness" },
@@ -22,7 +28,6 @@ const Gallery = ({ preview = false }) => {
       ? allImages
       : allImages.filter((img) => img.category === selectedCategory);
 
-  // If preview is true, show only first 8 images
   const imagesToShow = preview ? filteredImages.slice(0, 9) : filteredImages;
 
   return (
@@ -32,7 +37,7 @@ const Gallery = ({ preview = false }) => {
         Our Gallery
       </h2>
 
-      {/* Show filter buttons only on full gallery */}
+      {/* Filter Buttons */}
       {!preview && (
         <div className="flex justify-center gap-4 mb-8">
           {["all", "fitness", "boxing", "nutrition"].map((category) => (
@@ -56,22 +61,25 @@ const Gallery = ({ preview = false }) => {
         {imagesToShow.map((img, index) => (
           <div
             key={index}
-            className="break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-300"
+            className="break-inside-avoid overflow-hidden rounded-lg shadow-lg hover:scale-[1.02] transition-transform duration-300 relative w-full"
+            style={{ aspectRatio: "4/3" }}
           >
-            <img
+            <Image
               src={img.src}
               alt={`Gallery Image ${index + 1}`}
-              className="w-full h-auto object-cover"
+              fill
+              style={{ objectFit: "cover" }}
+              priority
             />
           </div>
         ))}
       </div>
 
-      {/* Button to View Full Gallery */}
+      {/* View Full Gallery Button */}
       {preview && (
         <div className="text-center mt-10">
           <a
-            href="/gallery" // 👉 You can route to full gallery page
+            href="/gallery"
             className="inline-block px-6 py-3 bg-[#39FF14] text-black font-bold rounded-full shadow-md hover:bg-[#2ecc71] transition"
           >
             View Full Gallery
