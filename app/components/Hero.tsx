@@ -7,7 +7,7 @@ import { Autoplay } from "swiper/modules";
 import "swiper/css";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
-import LeadPopup from "./LeadPopup"; // ✅ import popup
+import LeadPopup from "./LeadPopup";
 
 const Hero = () => {
   const headingRef = useRef<HTMLHeadingElement>(null);
@@ -16,7 +16,6 @@ const Hero = () => {
   const [showPopup, setShowPopup] = useState(false);
   const router = useRouter();
 
-  // Animate on mount (for first slide only)
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
     tl.fromTo(headingRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1 })
@@ -26,28 +25,28 @@ const Hero = () => {
 
   const slides = [
     {
-      img: "/images/cgym1.jpg",
+      img: "/images/cgym1.JPG",
       title: "More Than Muscle",
       subtitle: "We Build Lifestyle.",
       button: "Join Now",
       action: "popup",
     },
     {
-      img: "/images/cgym5.jpg",
+      img: "/images/cgym5.JPG",
       title: "Fitness Club",
       subtitle: "State-of-the-art equipment and training programs.",
       button: "Explore Fitness",
       action: "programs",
     },
     {
-      img: "/images/cgym3.jpg",
+      img: "/images/cgym3.JPG",
       title: "Boxing Fitness Club",
       subtitle: "Unleash your power with professional boxing sessions.",
       button: "Start Boxing",
       action: "programs",
     },
     {
-      img: "/images/cgym4.jpg",
+      img: "/images/cgym4.JPG",
       title: "Nutrition Club",
       subtitle: "Personalized nutrition plans for your fitness journey.",
       button: "Get Nutrition",
@@ -57,7 +56,6 @@ const Hero = () => {
 
   return (
     <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
-      {/* Swiper Background */}
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -76,7 +74,6 @@ const Hero = () => {
                 priority
               />
 
-              {/* Gradient Overlay */}
               <div
                 style={{
                   position: "absolute",
@@ -89,7 +86,6 @@ const Hero = () => {
                 }}
               />
 
-              {/* Content */}
               <div
                 style={{
                   position: "absolute",
@@ -140,7 +136,9 @@ const Hero = () => {
                     e.currentTarget.style.transform = "scale(1)";
                     e.currentTarget.style.boxShadow = "0 0 8px #39FF14, 0 0 16px #39FF14";
                   }}
-                  onClick={() => (slide.action === "popup" ? setShowPopup(true) : router.push("/programs"))}
+                  onClick={() =>
+                    slide.action === "popup" ? setShowPopup(true) : router.push("/programs")
+                  }
                 >
                   {slide.button}
                 </button>
@@ -150,7 +148,6 @@ const Hero = () => {
         ))}
       </Swiper>
 
-      {/* Lead Popup for first slide */}
       <LeadPopup isOpen={showPopup} onClose={() => setShowPopup(false)} club="Box FitX" />
     </section>
   );

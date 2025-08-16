@@ -9,16 +9,16 @@ interface GalleryProps {
 
 const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
   const allImages = [
-    { src: "/images/cgym1.jpg", category: "fitness" },
-    { src: "/images/cgym9.jpg", category: "fitness" },
-    { src: "/images/cgym1.jpg", category: "boxing" },
-    { src: "/images/cgym13.jpg", category: "boxing" },
-    { src: "/images/cgym12.jpg", category: "nutrition" },
-    { src: "/images/cgym4.jpg", category: "nutrition" },
-    { src: "/images/cgym5.jpg", category: "fitness" },
-    { src: "/images/cgym6.jpg", category: "boxing" },
-    { src: "/images/cgym7.jpg", category: "nutrition" },
-    { src: "/images/cgym8.jpg", category: "fitness" },
+    { src: "/images/cgym1.JPG", category: "fitness" },
+    { src: "/images/cgym9.JPG", category: "fitness" },
+    { src: "/images/cgym1.JPG", category: "boxing" },
+    { src: "/images/cgym13.JPG", category: "boxing" },
+    { src: "/images/cgym12.JPG", category: "nutrition" },
+    { src: "/images/cgym4.JPG", category: "nutrition" },
+    { src: "/images/cgym5.JPG", category: "fitness" },
+    { src: "/images/cgym6.JPG", category: "boxing" },
+    { src: "/images/cgym7.JPG", category: "nutrition" },
+    { src: "/images/cgym8.JPG", category: "fitness" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("all");
@@ -32,12 +32,10 @@ const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
 
   return (
     <section className="max-w-7xl mx-auto px-4 py-12">
-      {/* Title */}
       <h2 className="text-3xl font-bold text-center mb-8 text-[#39FF14] drop-shadow-lg">
         Our Gallery
       </h2>
 
-      {/* Filter Buttons */}
       {!preview && (
         <div className="flex justify-center gap-4 mb-8">
           {["all", "fitness", "boxing", "nutrition"].map((category) => (
@@ -56,7 +54,6 @@ const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
         </div>
       )}
 
-      {/* Image Grid */}
       <div className="columns-1 sm:columns-2 md:columns-3 gap-4 space-y-4">
         {imagesToShow.map((img, index) => (
           <div
@@ -75,7 +72,6 @@ const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
         ))}
       </div>
 
-      {/* View Full Gallery Button */}
       {preview && (
         <div className="text-center mt-10">
           <a
