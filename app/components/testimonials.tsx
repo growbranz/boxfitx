@@ -9,34 +9,42 @@ import { motion } from "framer-motion";
 import "swiper/css";
 import "swiper/css/pagination";
 
-const testimonials = [
+// Define TypeScript type for testimonials
+interface Testimonial {
+  name: string;
+  text: string;
+  img: string;
+  role?: string; // optional role
+}
+
+const testimonials: Testimonial[] = [
   {
     name: "merwin adelric",
-    // role: "Member Since 2023",
+    role: "Member Since 2023",
     text: "Absolutely love this gym! The facilities are top-notch, with clean and well-maintained equipment that caters to all fitness levels. The staff is incredibly friendly, knowledgeable, and always ready to help with form, workouts, or motivation. The atmosphere is energetic yet welcoming—perfect whether you’re a beginner or a seasoned gym-goer. The trainers genuinely push you to achieve your goals. It’s more than just a gym—it’s a community that keeps you coming back. Highly recommend!..Special Mention to Karthik Anna and Mythreyan Anna 🔥🔥🔥🔥",
     img: "/testimonials/client1.png",
   },
   {
     name: "sangeetha k s",
-    // role: "Member Since 2022",
+    role: "Member Since 2022",
     text: "The gym is very spacious and has a clean, high-end feel to it. One of the best parts is the trainer — he’s extremely friendly, supportive, and always makes sure we’re using the correct form during workouts. If you make a mistake, he patiently helps you correct it. The gym is fully equipped with a wide range of new machines, so everything you need is already there. Whether you’re a beginner or someone more experienced, this place has everything to help you stay consistent and reach your goals. They also offer a separate timing exclusively for women, which makes it even more comfortable and convenient. Highly recommended!",
     img: "/testimonials/client2.png",
   },
   {
     name: "RFM Shaggy",
-    // role: "Member Since 2024",
+    role: "Member Since 2024",
     text: "I've been coming to Boxfitx for three months and it's been a game-changer. It's more than just a gym; it has a genuinely welcoming and motivating atmosphere. The equipment is top-of-the-line and always clean, just like the rest of the facility. The staff are the best part—super friendly, knowledgeable, and always encouraging. If you're looking for a gym that feels like a community, this is your place. Highly recommend!",
     img: "/testimonials/client3.png",
   },
   {
     name: "Karthick R",
-    // role: "Member Since 2023",
+    role: "Member Since 2023",
     text: "From the moment you walk in, you feel the positive energy. The music, the cleanliness, and the professional trainers make every workout enjoyable. I’ve seen amazing results here. Best gym in Krishnagiri. Love the vibe here..",
     img: "/testimonials/client4.png",
   },
   {
     name: "boxer Vinoth",
-    // role: "Member Since 2021",
+    role: "Member Since 2021",
     text: "Box FitX has been awesome to me, This is the best gym in the Krishnagiri. Their trainers are exceptional, the overall vibe is great inside the gym, and I’ve had nothing but good experiences in the gym. I definitely recommend this gym to my friends and family.",
     img: "/testimonials/client5.png",
   },
@@ -113,7 +121,8 @@ const Testimonials = () => {
                     className="w-16 h-16 rounded-full border-2 border-[#39FF14] mb-3"
                   />
                   <h4 className="font-bold text-lg text-[#39FF14]">{item.name}</h4>
-                  <p className="text-sm text-gray-400">{item.role}</p>
+                  {/* Only render role if it exists */}
+                  {item.role && <p className="text-sm text-gray-400">{item.role}</p>}
                 </div>
               </div>
             </SwiperSlide>
