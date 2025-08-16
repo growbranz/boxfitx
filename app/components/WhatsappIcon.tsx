@@ -5,7 +5,7 @@ import { FaWhatsapp } from "react-icons/fa";
 const WhatsappIcon = () => {
   return (
     <a
-      href="https://wa.me/1234567890" // Replace with your WhatsApp number
+      href="https://wa.me/916379721022" 
       target="_blank"
       rel="noopener noreferrer"
       className="fixed bottom-5 right-5 z-50 bg-[#25D366] text-white p-4 rounded-full shadow-lg hover:scale-110 transition-transform"

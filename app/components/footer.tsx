@@ -1,43 +1,59 @@
 import React from "react";
+import Link from "next/link";
 import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-black text-gray-300 py-10">
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-3 gap-8">
+    <footer className="bg-black text-gray-300 pt-14 pb-6">
+      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-10">
         {/* Brand Info */}
-        <div>
+        <div className="md:col-span-2">
           <h2 className="text-2xl font-bold text-[#39FF14]">Box FitX</h2>
-          <p className="mt-3 text-sm text-gray-400">
-            We don’t just build bodies — we build lifestyles. Join our fitness
-            family and transform your life.
+          <p className="mt-3 text-sm text-gray-400 leading-relaxed max-w-xs">
+            A small river named Duden flows by their place and supplies it with
+            the necessary regelialia. Transform your lifestyle with us.
           </p>
         </div>
 
-        {/* Quick Links */}
+        {/* Services */}
         <div>
-          <h3 className="text-xl font-semibold text-[#39FF14] mb-3">
-            Quick Links
-          </h3>
+          <h3 className="text-lg font-semibold text-[#39FF14] mb-4">We Have</h3>
           <ul className="space-y-2 text-sm">
-            <li className="hover:text-[#39FF14] transition">Home</li>
-            <li className="hover:text-[#39FF14] transition">About</li>
-            <li className="hover:text-[#39FF14] transition">Gallery</li>
-            <li className="hover:text-[#39FF14] transition">Contact</li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/programs">Fitness Club</Link>
+            </li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/programs">Boxing Fitness Club</Link>
+            </li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/programs">Nutrition Club</Link>
+            </li>
           </ul>
         </div>
 
-        {/* Contact & Social */}
+        {/* About */}
         <div>
-          <h3 className="text-xl font-semibold text-[#39FF14] mb-3">
-            Contact Us
-          </h3>
-          <p className="text-sm">123 Fitness Street, Muscle City</p>
-          <p className="text-sm">Phone: (123) 456-7890</p>
-          <p className="text-sm">Email: info@morethanmuscle.com</p>
+          <h3 className="text-lg font-semibold text-[#39FF14] mb-4">About</h3>
+          <ul className="space-y-2 text-sm">
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/">Home</Link>
+            </li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/about">About</Link>
+            </li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/gallery">Gallery</Link>
+            </li>
+            <li className="hover:text-[#39FF14] transition">
+              <Link href="/contact">Contact</Link>
+            </li>
+          </ul>
+        </div>
 
-          {/* Social Icons */}
-          <div className="flex space-x-4 mt-4 text-lg">
+        {/* Social */}
+        <div>
+          <h3 className="text-lg font-semibold text-[#39FF14] mb-4">Social</h3>
+          <div className="flex space-x-4 text-lg">
             <FaFacebookF className="hover:text-[#39FF14] cursor-pointer transition" />
             <FaInstagram className="hover:text-[#39FF14] cursor-pointer transition" />
             <FaTwitter className="hover:text-[#39FF14] cursor-pointer transition" />
@@ -47,8 +63,8 @@ const Footer = () => {
       </div>
 
       {/* Bottom Bar */}
-      <div className="border-t border-gray-700 mt-10 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Box FitX. All rights reserved.
+      <div className="border-t border-gray-800 mt-12 pt-4 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} Box FitX. All rights reserved. | Made with ❤️ Grow Branz
       </div>
     </footer>
   );

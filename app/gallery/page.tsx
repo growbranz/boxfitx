@@ -1,12 +1,16 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import GallerySection from "../components/Gallery";
+import Gallery from "../components/Gallery";
+import Footer from "../components/footer";
+import WhatsappIcon from "../components/WhatsappIcon";
 
 const GalleryPage = () => {
   return (
     <div>
       <NavBar />
-      <GallerySection />
+      <Gallery preview={false} />
+      <Footer/>
+      <WhatsappIcon/>
     </div>
   );
 };

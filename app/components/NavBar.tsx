@@ -3,10 +3,12 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import LeadPopup from "./LeadPopup"; // ✅ import popup
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false);
-  const pathname = usePathname(); // Get current route
+  const [isOpen, setIsOpen] = useState(false); // mobile menu
+  const [showPopup, setShowPopup] = useState(false); // lead popup
+  const pathname = usePathname();
 
   const baseLinkStyle = {
     transition: "color 0.3s, text-shadow 0.3s",
@@ -30,7 +32,6 @@ const NavBar = () => {
     { name: "Contact", href: "/contact" },
   ];
 
-  // Active link style
   const activeStyle = {
     color: "#39FF14",
     textShadow: "0 0 8px #39FF14, 0 0 16px #39FF14",
@@ -74,9 +75,7 @@ const NavBar = () => {
                   className="cursor-pointer"
                   onMouseEnter={handleMouseEnter}
                   onMouseLeave={(e) =>
-                    pathname === item.href
-                      ? null
-                      : handleMouseLeave(e)
+                    pathname === item.href ? null : handleMouseLeave(e)
                   }
                 >
                   {item.name}
@@ -86,8 +85,8 @@ const NavBar = () => {
           </ul>
 
           {/* Join Now Button */}
-          <Link
-            href="/join"
+          <button
+            onClick={() => setShowPopup(true)} // ✅ open popup
             style={{
               backgroundColor: "#39FF14",
               color: "black",
@@ -96,7 +95,7 @@ const NavBar = () => {
             className="hidden md:block font-semibold px-5 py-2 rounded-full hover:opacity-90 transition-all cursor-pointer"
           >
             Join Now
-          </Link>
+          </button>
 
           {/* Mobile Menu Toggle */}
           <div className="md:hidden">
@@ -135,9 +134,7 @@ const NavBar = () => {
                 className="cursor-pointer"
                 onMouseEnter={handleMouseEnter}
                 onMouseLeave={(e) =>
-                  pathname === item.href
-                    ? null
-                    : handleMouseLeave(e)
+                  pathname === item.href ? null : handleMouseLeave(e)
                 }
                 onClick={() => setIsOpen(false)}
               >
@@ -145,20 +142,31 @@ const NavBar = () => {
               </Link>
             </li>
           ))}
-          <Link
-            href="/join"
+
+          {/* Mobile Join Now */}
+          <button
+            onClick={() => {
+              setIsOpen(false);
+              setShowPopup(true);
+            }}
             style={{
               backgroundColor: "#39FF14",
               color: "black",
               boxShadow: "0 0 8px #39FF14, 0 0 16px #39FF14",
             }}
             className="font-semibold px-4 py-2 w-full rounded-full hover:opacity-90 text-center"
-            onClick={() => setIsOpen(false)}
           >
             Join Now
-          </Link>
+          </button>
         </ul>
       </div>
+
+      {/* Lead Popup */}
+      <LeadPopup
+        isOpen={showPopup}
+        onClose={() => setShowPopup(false)}
+        club="Box FitX"
+      />
     </header>
   );
 };
