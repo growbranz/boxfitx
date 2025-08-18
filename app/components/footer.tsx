@@ -1,17 +1,27 @@
 import React from "react";
 import Link from "next/link";
-import { FaFacebookF, FaInstagram, FaTwitter, FaYoutube } from "react-icons/fa";
+import Image from "next/image";
+import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
     <footer className="bg-black text-gray-300 pt-14 pb-6">
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-5 gap-10">
-        {/* Brand Info */}
+        {/* Brand Info with Logo */}
         <div className="md:col-span-2">
-          <h2 className="text-2xl font-bold text-[#39FF14]">Box FitX</h2>
+          <div className="flex items-center gap-2 mb-3">
+            <Image
+              src="/logo.png"
+              alt="Box FitX Logo"
+              width={160} // slightly bigger for better emphasis
+              height={60}
+              className="object-contain"
+            />
+          </div>
           <p className="mt-3 text-sm text-gray-400 leading-relaxed max-w-xs">
-            A small river named Duden flows by their place and supplies it with
-            the necessary regelialia. Transform your lifestyle with us.
+            At <span className="text-[#39FF14] font-semibold">Box FitX</span>, we believe in more than just building muscles — 
+            we build strong bodies, sharp minds, and healthier lifestyles. 
+            Transform your fitness journey with us and discover the best version of yourself.
           </p>
         </div>
 
@@ -54,10 +64,38 @@ const Footer = () => {
         <div>
           <h3 className="text-lg font-semibold text-[#39FF14] mb-4">Social</h3>
           <div className="flex space-x-4 text-lg">
-            <FaFacebookF className="hover:text-[#39FF14] cursor-pointer transition" />
-            <FaInstagram className="hover:text-[#39FF14] cursor-pointer transition" />
-            <FaTwitter className="hover:text-[#39FF14] cursor-pointer transition" />
-            <FaYoutube className="hover:text-[#39FF14] cursor-pointer transition" />
+            <a
+              href="https://facebook.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#39FF14] transition"
+            >
+              <FaFacebookF />
+            </a>
+            <a
+              href="https://www.instagram.com/box__fitx?igsh=MWJjaGZmd2R4ajBlbg=="
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#39FF14] transition"
+            >
+              <FaInstagram />
+            </a>
+            <a
+              href="https://youtube.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#39FF14] transition"
+            >
+              <FaYoutube />
+            </a>
+            <a
+              href="https://linkedin.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[#39FF14] transition"
+            >
+              <FaLinkedinIn />
+            </a>
           </div>
         </div>
       </div>

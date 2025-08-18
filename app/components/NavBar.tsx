@@ -3,11 +3,12 @@ import React, { useState } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import LeadPopup from "./LeadPopup"; // ✅ import popup
+import Image from "next/image";
+import LeadPopup from "./LeadPopup";
 
 const NavBar = () => {
-  const [isOpen, setIsOpen] = useState(false); // mobile menu
-  const [showPopup, setShowPopup] = useState(false); // lead popup
+  const [isOpen, setIsOpen] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
   const pathname = usePathname();
 
   const baseLinkStyle = {
@@ -47,18 +48,16 @@ const NavBar = () => {
     >
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
-          {/* Logo */}
-          <Link
-            href="/"
-            style={{
-              color: "#39FF14",
-              fontFamily: "'Orbitron', sans-serif",
-              letterSpacing: "1px",
-              textShadow: "0 0 5px #39FF14, 0 0 15px #39FF14",
-            }}
-            className="flex-shrink-0 font-bold text-2xl"
-          >
-            Box FitX
+          {/* ✅ Bigger Logo */}
+          <Link href="/" className="flex items-center gap-2">
+            <Image
+              src="/logo.png"
+              alt="Box FitX Logo"
+              width={180}
+              height={65}
+              priority
+              className="object-contain"
+            />
           </Link>
 
           {/* Desktop Menu */}
@@ -86,7 +85,7 @@ const NavBar = () => {
 
           {/* Join Now Button */}
           <button
-            onClick={() => setShowPopup(true)} // ✅ open popup
+            onClick={() => setShowPopup(true)}
             style={{
               backgroundColor: "#39FF14",
               color: "black",

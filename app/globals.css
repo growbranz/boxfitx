@@ -1,1 +1,28 @@
+/* Import fonts first */
+
+@import url("https://fonts.googleapis.com/css2?family=Ethnocentric&family=Inter:wght@400;500;600;700&display=swap");
+
+/* Tailwind */
+
 @import "tailwindcss";
+
+/* Base font styles */
+
+html,
+body {
+    font-family: 'Inter', sans-serif;
+    /* Clean & readable for body */
+}
+
+
+/* Headings use Ethnocentric */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: 'Ethnocentric', sans-serif;
+    letter-spacing: 1px;
+}
