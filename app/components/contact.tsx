@@ -127,6 +127,7 @@ const Contact = () => {
               height="450"
               className="w-full min-h-[400px] border-0"
               loading="lazy"
+              title="BoxFitX Location Map"
               referrerPolicy="no-referrer-when-downgrade"
             ></iframe>
           </div>

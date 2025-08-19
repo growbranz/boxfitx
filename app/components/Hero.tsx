@@ -19,8 +19,18 @@ const Hero = () => {
   useEffect(() => {
     const tl = gsap.timeline({ defaults: { ease: "power3.out", duration: 1 } });
     tl.fromTo(headingRef.current, { y: 50, opacity: 0 }, { y: 0, opacity: 1 })
-      .fromTo(taglineRef.current, { y: 30, opacity: 0 }, { y: 0, opacity: 1 }, "-=0.4")
-      .fromTo(buttonRef.current, { scale: 0.8, opacity: 0 }, { scale: 1, opacity: 1, duration: 0.6 }, "-=0.3");
+      .fromTo(
+        taglineRef.current,
+        { y: 30, opacity: 0 },
+        { y: 0, opacity: 1 },
+        "-=0.4"
+      )
+      .fromTo(
+        buttonRef.current,
+        { scale: 0.8, opacity: 0 },
+        { scale: 1, opacity: 1, duration: 0.6 },
+        "-=0.3"
+      );
   }, []);
 
   const slides = [
@@ -55,7 +65,9 @@ const Hero = () => {
   ];
 
   return (
-    <section style={{ position: "relative", height: "100vh", overflow: "hidden" }}>
+    <section
+      style={{ position: "relative", height: "100vh", overflow: "hidden" }}
+    >
       <Swiper
         modules={[Autoplay]}
         autoplay={{ delay: 4000, disableOnInteraction: false }}
@@ -65,15 +77,16 @@ const Hero = () => {
       >
         {slides.map((slide, i) => (
           <SwiperSlide key={i}>
-            <div style={{ position: "relative", height: "100vh", width: "100%" }}>
+            <div
+              style={{ position: "relative", height: "100vh", width: "100%" }}
+            >
               <Image
                 src={slide.img}
-                alt={slide.title}
+                alt={`Hero background for ${slide.title} - ${slide.subtitle}`}
                 fill
                 style={{ objectFit: "cover" }}
-                priority
+                priority={i === 0} // only first slide gets priority
               />
-
               <div
                 style={{
                   position: "absolute",
@@ -81,7 +94,8 @@ const Hero = () => {
                   left: 0,
                   height: "100%",
                   width: "100%",
-                  background: "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 100%)",
+                  background:
+                    "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 100%)",
                   zIndex: 1,
                 }}
               />
@@ -112,7 +126,11 @@ const Hero = () => {
                 </h1>
                 <p
                   ref={i === 0 ? taglineRef : null}
-                  style={{ fontSize: "1.25rem", marginTop: "1rem", color: "#ededed" }}
+                  style={{
+                    fontSize: "1.25rem",
+                    marginTop: "1rem",
+                    color: "#ededed",
+                  }}
                 >
                   {slide.subtitle}
                 </p>
@@ -130,14 +148,18 @@ const Hero = () => {
                   }}
                   onMouseEnter={(e) => {
                     e.currentTarget.style.transform = "scale(1.05)";
-                    e.currentTarget.style.boxShadow = "0 0 15px #39FF14, 0 0 30px #39FF14";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 15px #39FF14, 0 0 30px #39FF14";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "scale(1)";
-                    e.currentTarget.style.boxShadow = "0 0 8px #39FF14, 0 0 16px #39FF14";
+                    e.currentTarget.style.boxShadow =
+                      "0 0 8px #39FF14, 0 0 16px #39FF14";
                   }}
                   onClick={() =>
-                    slide.action === "popup" ? setShowPopup(true) : router.push("/programs")
+                    slide.action === "popup"
+                      ? setShowPopup(true)
+                      : router.push("/programs")
                   }
                 >
                   {slide.button}
@@ -148,7 +170,11 @@ const Hero = () => {
         ))}
       </Swiper>
 
-      <LeadPopup isOpen={showPopup} onClose={() => setShowPopup(false)} club="Box FitX" />
+      <LeadPopup
+        isOpen={showPopup}
+        onClose={() => setShowPopup(false)}
+        club="Box FitX"
+      />
     </section>
   );
 };
