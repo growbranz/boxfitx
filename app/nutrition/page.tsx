@@ -123,7 +123,7 @@ const Nutrition = () => {
       <section className="bg-black text-white py-20 px-6">
         <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-12 items-center">
           <Image
-            src="/images/cgym9.jpg"
+            src="/images/cgym9.JPG"
             alt="Healthy Food"
             width={600}
             height={400}
