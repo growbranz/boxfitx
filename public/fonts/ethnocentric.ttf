@@ -1,0 +1,4 @@
+const ethnocentric = localFont({
+  src: "/fonts/ethnocentric.ttf", // no relative paths needed
+  variable: "--font-ethnocentric",
+});

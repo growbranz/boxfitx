@@ -85,7 +85,7 @@ const Hero = () => {
                 alt={`Hero background for ${slide.title} - ${slide.subtitle}`}
                 fill
                 style={{ objectFit: "cover" }}
-                priority={i === 0} // only first slide gets priority
+                priority={i === 0}
               />
               <div
                 style={{
@@ -95,7 +95,7 @@ const Hero = () => {
                   height: "100%",
                   width: "100%",
                   background:
-                    "linear-gradient(to top, rgba(0,0,0,0.7) 30%, rgba(0,0,0,0.3) 100%)",
+                    "linear-gradient(to top, rgba(0,0,0,0.75) 20%, rgba(0,0,0,0.3) 100%)",
                   zIndex: 1,
                 }}
               />
@@ -109,27 +109,32 @@ const Hero = () => {
                   textAlign: "center",
                   color: "white",
                   zIndex: 2,
-                  maxWidth: "90%",
+                  maxWidth: "85%",
                 }}
               >
                 <h1
                   ref={i === 0 ? headingRef : null}
+                  className="font-['Ethnocentric']"
                   style={{
-                    fontSize: "3rem",
+                    fontSize: "3.5rem",
                     fontWeight: "bold",
-                    fontFamily: "'Orbitron', sans-serif",
-                    color: "#39FF14",
-                    textShadow: "0 0 10px #39FF14, 0 0 20px #39FF14",
+                    letterSpacing: "2px",
+                    background: "linear-gradient(90deg, #39FF14, #00D4FF)",
+                    WebkitBackgroundClip: "text",
+                    WebkitTextFillColor: "transparent",
+                    textShadow: "0 0 20px rgba(0,255,128,0.3)",
                   }}
                 >
                   {slide.title}
                 </h1>
+
                 <p
                   ref={i === 0 ? taglineRef : null}
                   style={{
-                    fontSize: "1.25rem",
+                    fontSize: "1.3rem",
                     marginTop: "1rem",
-                    color: "#ededed",
+                    color: "#f1f1f1",
+                    fontFamily: "'Poppins', sans-serif",
                   }}
                 >
                   {slide.subtitle}
@@ -138,23 +143,23 @@ const Hero = () => {
                   ref={i === 0 ? buttonRef : null}
                   style={{
                     marginTop: "2rem",
-                    backgroundColor: "#39FF14",
+                    background: "linear-gradient(135deg, #39FF14, #00D4FF)",
                     color: "black",
-                    fontWeight: "bold",
-                    padding: "0.75rem 2rem",
+                    fontWeight: "600",
+                    padding: "0.9rem 2.5rem",
                     borderRadius: "50px",
-                    boxShadow: "0 0 8px #39FF14, 0 0 16px #39FF14",
-                    transition: "transform 0.2s, box-shadow 0.2s",
+                    boxShadow: "0 0 15px rgba(0,255,128,0.4)",
+                    transition: "all 0.3s ease",
                   }}
                   onMouseEnter={(e) => {
-                    e.currentTarget.style.transform = "scale(1.05)";
+                    e.currentTarget.style.transform = "scale(1.07)";
                     e.currentTarget.style.boxShadow =
-                      "0 0 15px #39FF14, 0 0 30px #39FF14";
+                      "0 0 25px rgba(0,255,128,0.6)";
                   }}
                   onMouseLeave={(e) => {
                     e.currentTarget.style.transform = "scale(1)";
                     e.currentTarget.style.boxShadow =
-                      "0 0 8px #39FF14, 0 0 16px #39FF14";
+                      "0 0 15px rgba(0,255,128,0.4)";
                   }}
                   onClick={() =>
                     slide.action === "popup"
