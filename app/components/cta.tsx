@@ -39,8 +39,8 @@ const CallToActionBanner = () => {
           transition={{ duration: 0.6 }}
           className="text-3xl md:text-5xl font-extrabold mb-6 leading-snug"
         >
-          Start Your{" "}
-          <span className="text-[#39FF14]">Transformation</span> <br />
+          Start Your <span className="text-[#39FF14]">Transformation</span>{" "}
+          <br />
           With <span className="text-[#ff4d00]">Box FitX</span>
         </motion.h2>
 
