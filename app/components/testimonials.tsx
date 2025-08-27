@@ -96,7 +96,8 @@ const Testimonials = () => {
           What Our Clients Say
         </h2>
         <p className="text-gray-400 max-w-2xl mx-auto mb-12">
-          Our clients share their experiences after achieving their fitness goals with us.
+          Our clients share their experiences after achieving their fitness
+          goals with us.
         </p>
 
         {/* Swiper Carousel */}
@@ -120,9 +121,13 @@ const Testimonials = () => {
                     alt={item.name}
                     className="w-16 h-16 rounded-full border-2 border-[#39FF14] mb-3"
                   />
-                  <h4 className="font-bold text-lg text-[#39FF14]">{item.name}</h4>
+                  <h4 className="font-bold text-lg text-[#39FF14]">
+                    {item.name}
+                  </h4>
                   {/* Only render role if it exists */}
-                  {item.role && <p className="text-sm text-gray-400">{item.role}</p>}
+                  {item.role && (
+                    <p className="text-sm text-gray-400">{item.role}</p>
+                  )}
                 </div>
               </div>
             </SwiperSlide>

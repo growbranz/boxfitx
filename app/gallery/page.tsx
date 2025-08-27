@@ -1,7 +1,7 @@
 import React from "react";
 import NavBar from "../components/NavBar";
 import Gallery from "../components/Gallery";
-import Footer from "../components/footer";
+import Footer from "../components/Footer";
 import WhatsappIcon from "../components/WhatsappIcon";
 
 const GalleryPage = () => {

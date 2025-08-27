@@ -1,14 +1,13 @@
-import Image from "next/image";
 import NavBar from "./components/NavBar";
 import Hero from "./components/Hero";
-import Footer from "./components/footer";
+import Footer from "./components/Footer";
 import WhatsappIcon from "./components/WhatsappIcon";
 import About from "./components/about";
 import Contact from "./components/contact";
 import Testimonials from "./components/testimonials";
 import WhatWeHave from "./components/what";
 import PricingPlans from "./components/price";
-import CallToActionBanner from "./components/cta";
+import CallToActionBanner from "./components/Cta";
 import Gallery from "./components/Gallery";
 export default function Home() {
   return (
