@@ -1,23 +1,23 @@
-import React from 'react';
-import NavBar from '../components/NavBar';
-import About from '../components/about';
-import Footer from '../components/footer';
+import React from "react";
+import NavBar from "../components/NavBar";
+import About from "../components/about";
+import Footer from "../components/Footer";
 import WhatWeHave from "../components/what";
-import Testimonials from '../components/testimonials';
-import WhatsappIcon from '../components/WhatsappIcon';
-import MissionVision from '../components/MissionVision';
-import Timetable from '../components/TimeTable';
+import Testimonials from "../components/testimonials";
+import WhatsappIcon from "../components/WhatsappIcon";
+import MissionVision from "../components/MissionVision";
+import Timetable from "../components/TimeTable";
 const AboutPage = () => {
   return (
     <div>
       <NavBar />
       <About />
-      <MissionVision/>
-      <WhatWeHave/>
-      <Testimonials/>
-       <Timetable />
-      <Footer/>
-      <WhatsappIcon/>
+      <MissionVision />
+      <WhatWeHave />
+      <Testimonials />
+      <Timetable />
+      <Footer />
+      <WhatsappIcon />
     </div>
   );
 };

@@ -1,7 +1,12 @@
 import React from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { FaFacebookF, FaInstagram, FaYoutube, FaLinkedinIn } from "react-icons/fa";
+import {
+  FaFacebookF,
+  FaInstagram,
+  FaYoutube,
+  FaLinkedinIn,
+} from "react-icons/fa";
 
 const Footer = () => {
   return (
@@ -19,9 +24,10 @@ const Footer = () => {
             />
           </div>
           <p className="mt-3 text-sm text-gray-400 leading-relaxed max-w-xs">
-            At <span className="text-[#39FF14] font-semibold">Box FitX</span>, we believe in more than just building muscles — 
-            we build strong bodies, sharp minds, and healthier lifestyles. 
-            Transform your fitness journey with us and discover the best version of yourself.
+            At <span className="text-[#39FF14] font-semibold">Box FitX</span>,
+            we believe in more than just building muscles — we build strong
+            bodies, sharp minds, and healthier lifestyles. Transform your
+            fitness journey with us and discover the best version of yourself.
           </p>
         </div>
 
@@ -102,7 +108,8 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800 mt-12 pt-4 text-center text-sm text-gray-500">
-        © {new Date().getFullYear()} Box FitX. All rights reserved. | Made with ❤️ Grow Branz
+        © {new Date().getFullYear()} Box FitX. All rights reserved. | Made with
+        ❤️ Grow Branz
       </div>
     </footer>
   );

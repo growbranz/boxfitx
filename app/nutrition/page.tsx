@@ -1,17 +1,11 @@
 "use client";
 import React from "react";
-import {
-  FaAppleAlt,
-  FaLeaf,
-  FaWeight,
-  FaUtensils,
-  FaSmileBeam,
-} from "react-icons/fa";
+import { FaLeaf, FaWeight, FaUtensils, FaSmileBeam } from "react-icons/fa";
 import { GiMuscleUp, GiShinyApple } from "react-icons/gi";
 import NavBar from "../components/NavBar";
-import Footer from "../components/footer";
+import Footer from "../components/Footer"; // ✅ match file casing
 import WhatsappIcon from "../components/WhatsappIcon";
-import CallToActionBanner from "../components/cta";
+import CallToActionBanner from "../components/Cta"; // ✅ match file casing
 import Image from "next/image";
 
 const nutritionServices = [
@@ -65,7 +59,7 @@ const Nutrition = () => {
       <NavBar />
 
       {/* Hero Section with Background Image */}
-      <section className="relative bg-black text-white text-center py-32 px-6">
+      <section className="relative bg-black text-white text-center px-6 flex items-center justify-center min-h-[60vh]">
         <Image
           src="/nutrition/nutrition-hero.jpg"
           alt="Nutrition Hero"
@@ -73,13 +67,13 @@ const Nutrition = () => {
           priority
           className="object-cover opacity-30"
         />
-        <div className="relative z-10">
+        <div className="relative z-10 max-w-3xl">
           <h1 className="text-4xl md:text-6xl font-extrabold uppercase mb-6">
             <span className="bg-gradient-to-r from-[#39FF14] to-[#00D4FF] bg-clip-text text-transparent drop-shadow-lg">
               Nutrition for Performance
             </span>
           </h1>
-          <p className="text-gray-200 max-w-2xl mx-auto text-lg md:text-xl">
+          <p className="text-gray-200 text-lg md:text-xl">
             At <span className="text-white font-semibold">Box FitX</span>, we
             believe nutrition is the foundation of fitness. Get tailored plans,
             expert guidance, and the fuel your body deserves.
@@ -87,7 +81,7 @@ const Nutrition = () => {
         </div>
       </section>
 
-      {/* Nutrition Services Grid with Images */}
+      {/* Nutrition Services Grid */}
       <section className="bg-neutral-950 text-white py-20 px-6">
         <div className="max-w-7xl mx-auto text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold uppercase mb-6 text-[#39FF14] drop-shadow-lg">
@@ -104,7 +98,6 @@ const Nutrition = () => {
                 key={index}
                 className="bg-neutral-900 rounded-2xl shadow-lg shadow-[0_0_15px_rgba(57,255,20,0.3)] hover:scale-105 transition-transform overflow-hidden"
               >
-                {/* Image with consistent aspect ratio */}
                 <div className="relative w-full aspect-[4/3]">
                   <Image
                     src={service.image}
@@ -113,8 +106,6 @@ const Nutrition = () => {
                     className="object-cover"
                   />
                 </div>
-
-                {/* Card content */}
                 <div className="p-6">
                   <div className="flex justify-center mb-4">{service.icon}</div>
                   <h3 className="text-2xl font-bold text-[#39FF14] mb-2">
