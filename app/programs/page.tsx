@@ -10,10 +10,10 @@ import {
 import { GiBoxingGlove, GiMuscleUp } from "react-icons/gi";
 import { MdFitnessCenter } from "react-icons/md";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer";
+import Footer from "../components/footer";
 import WhatsappIcon from "../components/WhatsappIcon";
 import PricingPlans from "../components/price";
-import CallToActionBanner from "../components/Cta";
+import CallToActionBanner from "../components/cta";
 import WhatWeHave from "../components/what";
 
 const programsList = [

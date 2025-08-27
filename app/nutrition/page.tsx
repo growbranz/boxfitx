@@ -3,9 +3,9 @@ import React from "react";
 import { FaLeaf, FaWeight, FaUtensils, FaSmileBeam } from "react-icons/fa";
 import { GiMuscleUp, GiShinyApple } from "react-icons/gi";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer"; // ✅ match file casing
+import Footer from "../components/footer"; // ✅ match file casing
 import WhatsappIcon from "../components/WhatsappIcon";
-import CallToActionBanner from "../components/Cta"; // ✅ match file casing
+import CallToActionBanner from "../components/cta"; // ✅ match file casing
 import Image from "next/image";
 
 const nutritionServices = [
