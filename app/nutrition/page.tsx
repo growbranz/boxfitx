@@ -3,9 +3,9 @@ import React from "react";
 import { FaLeaf, FaWeight, FaUtensils, FaSmileBeam } from "react-icons/fa";
 import { GiMuscleUp, GiShinyApple } from "react-icons/gi";
 import NavBar from "../components/NavBar";
-import Footer from "../components/Footer"; // ✅ match file casing
+import Footer from "../components/Footer"; // ✅ correct casing
 import WhatsappIcon from "../components/WhatsappIcon";
-import CallToActionBanner from "../components/Cta"; // ✅ match file casing
+import CallToActionBanner from "../components/Cta"; // ✅ correct casing
 import Image from "next/image";
 
 const nutritionServices = [
@@ -140,8 +140,8 @@ const Nutrition = () => {
               the day.
             </p>
             <p className="text-gray-400 italic">
-              "The body achieves what the mind believes — and it starts with the
-              fuel you provide."
+              &quot;The body achieves what the mind believes — and it starts
+              with the fuel you provide.&quot;
             </p>
           </div>
         </div>
