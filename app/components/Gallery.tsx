@@ -19,6 +19,20 @@ const Gallery: React.FC<GalleryProps> = ({ preview = false }) => {
     { src: "/images/cgym6.JPG", category: "boxing" },
     { src: "/images/cgym7.JPG", category: "nutrition" },
     { src: "/images/cgym8.JPG", category: "fitness" },
+    { src: "/images/gallery1.jpg", category: "fitness" },
+    { src: "/images/gallery2.jpg", category: "fitness" },
+    { src: "/images/gallery3.jpg", category: "fitness" },
+    { src: "/images/gallery16.jpg", category: "fitness" },
+    { src: "/images/gallery17.jpg", category: "fitness" },
+    { src: "/images/gallery18.jpg", category: "fitness" },
+    { src: "/images/gallery4.jpg", category: "fitness" },
+    { src: "/images/gallery18.jpg", category: "fitness" },
+    { src: "/images/gallery19.jpg", category: "fitness" },
+    { src: "/images/gallery20.jpg", category: "fitness" },
+    { src: "/images/gallery7.jpg", category: "fitness" },
+    { src: "/images/gallery8.jpg", category: "fitness" },
+    { src: "/images/gallery9.jpg", category: "fitness" },
+    { src: "/images/gallery10.jpg", category: "fitness" },
   ];
 
   const [selectedCategory, setSelectedCategory] = useState("all");
